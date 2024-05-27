@@ -2,7 +2,7 @@ import requests
 from qbittorrent import Client
 
 def get_torrent_info(name, limit=10):
-    url = f"https://search.decentrala.org/api.php?q={name}&p=0&t=3"
+    url = f"https://librey.org/api.php?q={name}&p=0&t=3"
     try:
         response = requests.get(url)
         response.raise_for_status()
@@ -18,7 +18,7 @@ def get_magnet_link(link):
         return link
     else:
         try:
-            search = f'https://search.decentrala.org/{link}'
+            search = f'https://librey.org/{link}'
             r = requests.head(search, allow_redirects=False)
             r.raise_for_status()
             if 300 < r.status_code < 400:
@@ -31,7 +31,7 @@ def get_magnet_link(link):
 def select_torrent(torrents):
     print("Select a torrent:")
     for idx, torrent in enumerate(torrents, start=1):
-        print(f"{idx}. {torrent['name']} {torrent['size']}")
+        print(f"{idx}. {torrent['name']} {torrent['size']} {torrent['seeders']}")
     while True:
         try:
             choice = int(input("Enter the number corresponding to the torrent you want to add: "))
