@@ -1,4 +1,6 @@
 import requests
+import subprocess
+import os
 from qbittorrent import Client
 
 def get_torrent_info(name, limit=10):
@@ -31,7 +33,7 @@ def get_magnet_link(link):
 def select_torrent(torrents):
     print("Select a torrent:")
     for idx, torrent in enumerate(torrents, start=1):
-        print(f"{idx}. {torrent['name']} {torrent['size']} {torrent['seeders']}")
+        print(f"{idx}. {torrent['name']} {torrent['size']} {torrent['seeders']} ")
     while True:
         try:
             choice = int(input("Enter the number corresponding to the torrent you want to add: "))
@@ -41,6 +43,11 @@ def select_torrent(torrents):
                 print("Invalid choice. Please enter a number within the range.")
         except ValueError:
             print("Invalid input. Please enter a number.")
+
+def start_qbittorrent():
+    # Specify the path to the qBittorrent executable
+    qbittorrent_path = 'C:/Program Files/qBittorrent/qbittorrent.exe'
+    subprocess.Popen([qbittorrent_path])
 
 def add_to_qbittorrent(magnet_link):
     qb = Client('http://localhost:8080/')
@@ -53,6 +60,7 @@ def main():
     if torrents:
         selected_torrent = select_torrent(torrents)
         magnet_link = get_magnet_link(selected_torrent['magnet'])
+        start_qbittorrent()
         add_to_qbittorrent(magnet_link)
         print("Torrent added to qBittorrent.")
     else:
