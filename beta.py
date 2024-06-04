@@ -3,7 +3,7 @@ import subprocess
 import os
 from qbittorrent import Client
 
-def get_torrent_info(name, limit=10):
+def get_torrent_info(name, limit=15):
     url = f"https://librey.org/api.php?q={name}&p=0&t=3"
     try:
         response = requests.get(url)
