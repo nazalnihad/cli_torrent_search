@@ -109,9 +109,8 @@ Supports **GNU/Linux** and **Windows**.
 
 ## Screenshots
 
-> _Add your screenshots here if needed._
 
-![placeholder](docs/screenshot.png)
+![](image/image.png)
 
 ---
 
