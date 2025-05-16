@@ -1,0 +1,7 @@
+#!/bin/bash
+
+(
+    qbittorrent-nox & 
+    source /home/user/scripts/torrent_script/venv/bin/activate
+    python /home/user/scripts/torrent_script/torrent.py "$@"
+)
