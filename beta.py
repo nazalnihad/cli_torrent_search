@@ -21,8 +21,8 @@ def get_magnet_link(link):
         return link
     else:
         try:
-            # search = f'https://librey.org/{link}'
-            search = f'https://search.decentrala.org/{link}'
+            search = f'https://librey.org/{link}'
+            # search = f'https://search.decentrala.org/{link}'
             r = requests.head(search, allow_redirects=False)
             r.raise_for_status()
             if 300 < r.status_code < 400:
