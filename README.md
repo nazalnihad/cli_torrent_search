@@ -2,11 +2,11 @@
 
 A simple CLI script to search torrents and send them directly to qBittorrent using the WebUI.
 
-Supports **GNU/Linux** and **Windows**.
+Supports **GNU/Linux**,**Termux** and **Windows**.
 
 ---
 
-## 🧰 Requirements
+##  Requirements
 
 ### Common:
 - Python 3
@@ -65,20 +65,43 @@ Supports **GNU/Linux** and **Windows**.
 
    Or run the Python script directly:
    ```bash
-   python torrent.py
+   python fetcher.py
    ```
 
 ### Windows:
 
 1. Install qBittorrent and enable WebUI (see above).
 
-2. Edit `windows_version.py`:
+2. Edit `windows_version.py` in windows folder:
    - Set the correct path to `qbittorrent.exe`.
    - Update WebUI username/password.
 
 3. Run:
    ```bash
    python windows_version.py
+   ```
+   
+### Android (Termux)
+
+1. Install dependencies:
+   ```bash
+   pkg update
+   pkg install python aria2 termux-api
+   pip install -r requirements.txt
+   ```
+
+2. Setup storage access:
+   ```bash
+   termux-setup-storage
+   ```
+
+4. Run:
+   ```bash
+   python mobile.py
+   ```
+   Or:
+   ```bash
+   python aria_v.py (cli only version)
    ```
 
 ---
@@ -88,7 +111,7 @@ Supports **GNU/Linux** and **Windows**.
 - Run the script.
 - Enter the torrent name.
 - Select the result from the numbered list.
-- It will resolve the magnet link and add it to qBittorrent.
+- It will resolve the magnet link and add it to qBittorrent or any torrent client in mobile.
 
 ---
 
