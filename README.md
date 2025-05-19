@@ -112,7 +112,7 @@ Supports **GNU/Linux**,**Termux** and **Windows**.
 - Enter the torrent name.
 - Select the result from the numbered list.
 - It will resolve the magnet link and add it to qBittorrent or any torrent client in mobile.
-- The librey api might be down at times you can self host is or try the 1337x_v version for searching and getting 1337x torrents
+- The librey api might be down at times you can self host is or try the 1337x_v version for searching and getting 1337x
 ---
 
 ##  Notes
